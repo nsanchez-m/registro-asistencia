@@ -2,59 +2,133 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro de Asistencia</title>
+    <title>GBU - Registro de Asistencia</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #faf9f7;
+        }
+        .card {
+            border-radius: 20px;
+        }
+        .btn-main {
+            background-color: #b0469f;
+            border: none;
+            border-radius: 30px;
+            padding: 12px;
+            font-size: 1.1rem;
+        }
+        .btn-main:hover {
+            background-color: #9a3c8b;
+        }
+        .text-main {
+            color: #b0469f;
+        }
+        .admin-link {
+            color: #b0469f;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .admin-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
-<body class="bg-light">
+<body>
 
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
+<div class="container mt-5 mb-5">
+    <div class="text-center mb-4">
+        <!-- Logo opcional -->
+        <!-- <img src="/static/logo.png" width="60"> -->
+        <h1 class="text-main fw-bold">GBU</h1>
+        <p class="text-muted">Registro de Asistencia</p>
+    </div>
 
-                <div class="card shadow">
-                    <div class="card-body">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
 
-                        <h3 class="text-center mb-3">Registro de Asistencia</h3>
-                        <p class="text-center text-muted">Fecha: {{ fecha }}</p>
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
 
-                        <form method="post">
+                    <h4 class="text-main mb-2">Registrar Asistencia</h4>
+                    <p class="text-muted mb-4">
+                        Completa el formulario para registrar tu asistencia
+                    </p>
 
-                            <div class="mb-3">
+                    <form method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label">Actividad</label>
+                            <select class="form-select" name="actividad">
+                                <option>No hay actividades hoy</option>
+                            </select>
+                            <small class="text-muted">
+                                No hay actividades programadas para el día de hoy
+                            </small>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
                                 <label class="form-label">Nombre</label>
-                                <input type="text" name="nombre" class="form-control" required>
+                                <input type="text" class="form-control" name="nombre" required>
                             </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">RUT</label>
-                                <input type="text" name="rut" class="form-control" required>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Apellido</label>
+                                <input type="text" class="form-control" name="apellido" required>
                             </div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Actividad</label>
-                                <select name="actividad" class="form-select">
-                                    <option>Reunión</option>
-                                    <option>Ensayo</option>
-                                    <option>Evento</option>
-                                </select>
+                        <div class="mb-3">
+                            <label class="form-label">Matrícula</label>
+                            <input type="text" class="form-control" name="matricula">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Carrera</label>
+                            <input type="text" class="form-control" name="carrera"
+                                   placeholder="Ingeniería Civil, Medicina, etc.">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Correo institucional</label>
+                            <input type="email" class="form-control" name="correo"
+                                   placeholder="juan.perez@ufrontera.cl">
+                        </div>
+
+                        <div class="form-check mb-4 p-3 rounded" style="background:#f6f3ef;">
+                            <input class="form-check-input" type="checkbox" name="primera_vez">
+                            <label class="form-check-label fw-semibold">
+                                ¿Es tu primera vez en GBU?
+                            </label>
+                            <div class="text-muted small">
+                                Marca esta casilla si es tu primera asistencia
                             </div>
+                        </div>
 
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">
-                                    Registrar asistencia
-                                </button>
-                            </div>
+                        <div class="d-grid">
+                            <button class="btn btn-main text-white">
+                                Registrar Asistencia
+                            </button>
+                        </div>
 
-                        </form>
+                    </form>
 
+                    <div class="text-center mt-4">
+                        <a href="/admin" class="admin-link">
+                            Acceso Administrador
+                        </a>
                     </div>
-                </div>
 
+                </div>
             </div>
+
         </div>
     </div>
+</div>
 
 </body>
 </html>
